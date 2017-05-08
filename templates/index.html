@@ -1,0 +1,43 @@
+<!-- tempates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="../static/style.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th class="name">Name</th>
+                    <th class="post">Posted</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for poster,post in log %}
+                <tr>
+                    <td class="name">{{poster}}</td>
+                    <td class="post">{{post}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <section class="sect">
+            <form action="/write" method="get">
+                <span>名前</span>
+                <input type="text" name="name" size="10">
+                <span>メッセージ</span>
+                <input type="text" name="text" size="30">
+                <input type="submit" value="送信">
+            </form>
+        </section>
+        <section class="sect">
+            <form action="/dbwrite">
+            <input type="submit" value="DBに書き込む">
+            </form>
+        </section>
+    </div>
+</body>
+</html>
